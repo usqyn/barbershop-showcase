@@ -128,10 +128,10 @@ const Index = () => {
       {/* 店铺公告 */}
       <View className='notice-section'>
         <View className='notice-icon'>📢</View>
-        <Text className='notice-text'>{t('announcement')}</Text>
         <View className='notice-content'>
-          <Text className='notice-info'>周三会员日，洗剪吹低至9.9起...</Text>
+          <Text className='notice-info'>周三会员日，洗剪吹低至9.9起，烫染护全场5折，新客专享首次体验价</Text>
         </View>
+        <View className='notice-close'>✕</View>
       </View>
 
       {/* 服务入口 */}

@@ -27,8 +27,9 @@
 /* 轮播图 */
 .banner-section {
   width: 100%;
-  height: 400px;
+  height: 420px;
   position: relative;
+  background-color: #f0e6ff;
 }
 
 .banner-swiper {
@@ -48,8 +49,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, transparent, rgba(168, 85, 247, 0.9));
-  padding: 160px 30px 40px;
+  background: linear-gradient(to top, rgba(124, 58, 237, 0.92) 0%, rgba(168, 85, 247, 0.5) 50%, transparent 100%);
+  padding: 200px 30px 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -61,20 +62,19 @@
   color: #ffffff;
   line-height: 1;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffffff, #e0e7ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .banner-subtitle {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #ffffff;
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  padding: 8px 24px;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 20px;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  align-self: flex-start;
 }
 
 .banner-features {
@@ -90,62 +90,71 @@
 
 /* 店铺公告 */
 .notice-section {
-  background-color: #ffffff;
-  margin: 16px 20px;
-  padding: 20px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 14px 20px;
+  margin: 0 20px 16px;
+  background-color: #faf5ff;
+  border-radius: 12px;
+  gap: 10px;
 }
 
 .notice-icon {
-  font-size: 32px;
-}
-
-.notice-text {
   font-size: 28px;
-  color: #a855f7;
-  font-weight: bold;
-  white-space: nowrap;
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
 }
 
 .notice-content {
   flex: 1;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 2px solid #e5e7eb;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .notice-info {
   font-size: 26px;
-  color: #666666;
+  color: #7c3aed;
+  display: inline-block;
+  animation: notice-marquee 8s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes notice-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.notice-close {
+  font-size: 24px;
+  color: #a855f7;
+  flex-shrink: 0;
+  padding: 4px 6px;
+  opacity: 0.5;
 }
 
 /* 服务网格 */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 12px;
   padding: 20px;
   background-color: #ffffff;
   margin: 0 20px 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .service-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 10px;
+  padding: 16px 8px;
+  border-radius: 12px;
+  transition: all 0.2s;
   text-decoration: none;
+}
+
+.service-item:active {
+  background-color: rgba(168, 85, 247, 0.08);
 }
 
 .service-icon-box {
@@ -178,13 +187,18 @@
 
 /* 搜索框 */
 .search-box {
-  margin: 0 20px 24px;
-  padding: 20px 24px;
-  background-color: #f5f5f5;
+  margin: -4px 20px 24px;
+  padding: 18px 24px;
+  background-color: #f8f5ff;
   border-radius: 50px;
   display: flex;
   align-items: center;
   gap: 12px;
+  border: 2px solid rgba(168, 85, 247, 0.15);
+}
+
+.search-box:active {
+  background-color: #ede9fe;
 }
 
 .search-icon {
@@ -200,7 +214,10 @@
 /* 通用section */
 .section {
   padding: 20px;
-  margin-bottom: 16px;
+  background-color: #ffffff;
+  margin: 0 20px 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .section-title {
@@ -208,32 +225,46 @@
   font-weight: bold;
   color: #333333;
   margin-bottom: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
 }
 
 /* 产品列表 */
 .products-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .product-card {
-  background-color: #ffffff;
-  border-radius: 12px;
+  background-color: #f8f5ff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);
   display: flex;
 }
 
 .product-image {
-  width: 240px;
-  height: 240px;
-  border-radius: 12px 0 0 12px;
+  width: 220px;
+  height: 220px;
+  border-radius: 16px 0 0 16px;
+  background-color: #ede9fe;
 }
 
 .product-info {
   flex: 1;
-  padding: 20px;
+  padding: 16px 16px 16px 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -264,13 +295,13 @@
 }
 
 .timer {
-  border: 2px solid rgba(168, 85, 247, 0.3);
+  border: 2px solid rgba(168, 85, 247, 0.25);
   border-radius: 50px;
-  padding: 10px 20px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(168, 85, 247, 0.05);
+  gap: 10px;
+  background: rgba(168, 85, 247, 0.04);
 }
 
 .timer-label {
@@ -357,10 +388,11 @@
 /* 广告横幅 */
 .ad-banner {
   position: relative;
-  height: 300px;
+  height: 280px;
   margin: 0 20px 16px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
+  background-color: #ede9fe;
 }
 
 .ad-image {
@@ -374,11 +406,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(124, 58, 237, 0.2));
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(124, 58, 237, 0.25));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(2px);
 }
 
 .ad-title {
@@ -403,17 +436,20 @@
 /* 礼品卡 */
 .gift-cards {
   display: flex;
-  gap: 20px;
+  gap: 16px;
 }
 
 .gift-card {
   flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .card-image-container {
   position: relative;
-  height: 360px;
-  border-radius: 12px;
+  height: 340px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -473,7 +509,7 @@
 /* 占位区域 */
 .placeholder-area {
   height: 200px;
-  background-color: #f5f5f5;
+  background-color: #ede9fe;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -486,5 +522,5 @@
 
 /* 底部安全距离 */
 .bottom-padding {
-  height: 100px;
+  height: 40px;
 }
