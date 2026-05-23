@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { translations, Language, langManager } from '../locales';
+import Taro from '@tarojs/taro';
+import { translations, Language } from '../locales';
 
 interface LanguageContextType {
   language: Language;

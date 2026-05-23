@@ -523,46 +523,4 @@ export const translations = {
 
 export type Language = 'zh' | 'kk' | 'kkArabic';
 
-// 语言管理类
-export class LanguageManager {
-  private currentLang: Language = 'zh';
-  
-  constructor() {
-    // 从本地存储获取语言设置
-    const savedLang = localStorage.getItem('currentLanguage') as Language;
-    if (savedLang && translations[savedLang]) {
-      this.currentLang = savedLang;
-    }
-  }
-  
-  getCurrentLang(): Language {
-    return this.currentLang;
-  }
-  
-  setLanguage(lang: Language) {
-    if (translations[lang]) {
-      this.currentLang = lang;
-      localStorage.setItem('currentLanguage', lang);
-      // 触发页面重新渲染
-      window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
-    }
-  }
-  
-  t(key: string): string {
-    const keys = key.split('.');
-    let value: any = translations[this.currentLang];
-    
-    for (const k of keys) {
-      if (value[k] !== undefined) {
-        value = value[k];
-      } else {
-        console.warn(`Translation key "${key}" not found for language "${this.currentLang}"`);
-        return key;
-      }
-    }
-    
-    return value;
-  }
-}
 
-export const langManager = new LanguageManager();

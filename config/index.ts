@@ -8,8 +8,7 @@ const config: IConfig = {
     '375': 2 / 1,
     '750': 1,
     '828': 945 / 828,
-    '640': 960 / 640,
-    '375': 730 / 375
+    '640': 960 / 640
   },
   sourceRoot: 'src',
   outputRoot: 'dist',

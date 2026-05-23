@@ -1,26 +1,13 @@
-import { Component, ReactNode } from 'react'
-import { View } from '@tarojs/components'
+import { ReactNode } from 'react'
 import { LanguageProvider } from './contexts/LanguageContext'
 import './app.css'
 
-class App extends Component<{children?: ReactNode}> {
-  componentDidMount () {}
-
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentDidCatchError () {}
-
-  render () {
-    return (
-      <LanguageProvider>
-        <View id="app">
-          {this.props.children}
-        </View>
-      </LanguageProvider>
-    )
-  }
+const App = ({ children }: { children?: ReactNode }) => {
+  return (
+    <LanguageProvider>
+      {children}
+    </LanguageProvider>
+  )
 }
 
 export default App
