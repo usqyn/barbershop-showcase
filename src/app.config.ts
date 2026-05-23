@@ -30,6 +30,18 @@ export default {
         selectedIconPath: 'assets/tab-home-active.png'
       },
       {
+        pagePath: 'pages/services/services',
+        text: '美发服务',
+        iconPath: 'assets/tab-services.png',
+        selectedIconPath: 'assets/tab-services-active.png'
+      },
+      {
+        pagePath: 'pages/mall/mall',
+        text: '商城',
+        iconPath: 'assets/tab-mall.png',
+        selectedIconPath: 'assets/tab-mall-active.png'
+      },
+      {
         pagePath: 'pages/reserve/reserve',
         text: '预约',
         iconPath: 'assets/tab-reserve.png',
@@ -37,7 +49,7 @@ export default {
       },
       {
         pagePath: 'pages/member/member',
-        text: '会员中心',
+        text: '我的',
         iconPath: 'assets/tab-member.png',
         selectedIconPath: 'assets/tab-member-active.png'
       }

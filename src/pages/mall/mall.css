@@ -10,8 +10,17 @@
   text-align: center;
   color: white;
   display: flex;
-  flex-direction: column;
-  gap: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  gap: 30rpx;
+}
+
+.header-icon {
+  font-size: 48rpx;
 }
 
 .points-balance {
@@ -102,18 +111,26 @@
   white-space: nowrap;
 }
 
-.product-points {
-  font-size: 32rpx;
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.current-price {
+  font-size: 36rpx;
   color: #a855f7;
   font-weight: bold;
 }
 
-.product-points span {
-  font-size: 22rpx;
+.original-price {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
 }
 
 .exchange-btn {
-  margin-top: 15rpx;
   background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
   color: white;
   text-align: center;

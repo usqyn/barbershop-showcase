@@ -10,8 +10,10 @@ export const translations = {
     
     // 导航
     home: '首页',
+    services: '美发服务',
+    mall: '商城',
     reserve: '预约',
-    member: '会员中心',
+    member: '我的',
     back: '返回',
     
     // 首页
@@ -55,13 +57,14 @@ export const translations = {
     
     // 积分商城
     pointsMall: '积分商城',
+    mall: '商城',
     myPoints: '可用积分',
     pointsDetails: '积分明细',
     earnPoints: '赚积分',
-    allProducts: '全部',
-    serviceExchange: '服务',
-    peripheral: '周边',
-    couponExchange: '优惠券',
+    allProducts: '全部商品',
+    shampoo: '洗发水',
+    conditioner: '护发素',
+    styling: '造型品',
     points: '积分',
     exchangeNow: '立即兑换',
     
@@ -183,8 +186,10 @@ export const translations = {
     
     // 导航
     home: 'Басты бет',
+    services: 'Шаш қызметі',
+    mall: 'Дүкен',
     reserve: 'Брондау',
-    member: 'Мемберлік',
+    member: 'Менің',
     back: 'Артқа',
     
     // 首页
@@ -228,13 +233,14 @@ export const translations = {
     
     // 积分商城
     pointsMall: 'Ойындар дүкені',
+    mall: 'Дүкен',
     myPoints: 'Балдар',
     pointsDetails: 'Балдар тіркелгені',
     earnPoints: 'Бал жинау',
-    allProducts: 'Барлығы',
-    serviceExchange: 'Қызмет',
-    peripheral: 'Айналайын',
-    couponExchange: 'Купон',
+    allProducts: 'Барлық тауарлар',
+    shampoo: 'Шаш жуғыш',
+    conditioner: 'Шаш кондиционері',
+    styling: 'Стильдеу',
     points: 'бал',
     exchangeNow: 'Дербес айырмасын алу',
     
@@ -356,8 +362,10 @@ export const translations = {
     
     // 导航
     home: 'باستى بەت',
+    services: 'شاش قىزمەتى',
+    mall: 'دۇكەن',
     reserve: 'برونداۋ',
-    member: 'مەمبەرلىك',
+    member: 'مەنىڭ',
     back: 'ارتقا',
     
     // 首页
@@ -401,13 +409,14 @@ export const translations = {
     
     // 积分商城
     pointsMall: 'ويىندار دۇكەنى',
+    mall: 'دۇكەن',
     myPoints: 'بالدار',
     pointsDetails: 'بالدار تىركەلگەنى',
     earnPoints: 'بال جيناۋ',
-    allProducts: 'بارلىعى',
-    serviceExchange: 'قىزمەت',
-    peripheral: 'اينالايىن',
-    couponExchange: 'كۇپون',
+    allProducts: 'بارلىق تاروۋلار',
+    shampoo: 'شاش جۋعىش',
+    conditioner: 'شاش كونديتسيونەرى',
+    styling: 'ستيلدەۋ',
     points: 'بال',
     exchangeNow: 'دەربەس ايىرماسىن الۋ',
     
