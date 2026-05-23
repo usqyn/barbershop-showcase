@@ -6,37 +6,37 @@ import './index.css'
 
 // 模拟数据
 const banners = [
-  'https://images.unsplash.com/photo-1522337360788-8b13dee7a36e?auto=format&fit=crop&q=80&w=1200&h=600',
-  'https://images.unsplash.com/photo-1522337360788-8b13dee7a36e?auto=format&fit=crop&q=80&w=1200&h=600',
-  'https://images.unsplash.com/photo-1522337360788-8b13dee7a36e?auto=format&fit=crop&q=80&w=1200&h=600'
+  'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=beautiful%20woman%20with%20long%20black%20hair%20salon%20beauty%20purple%20theme&image_size=landscape_16_9',
+  'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hair%20salon%20beauty%20model%20professional%20styling&image_size=landscape_16_9',
+  'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20hair%20salon%20interior%20professional%20stylist&image_size=landscape_16_9'
 ]
 
 const getServices = (t) => [
-  { id: 1, name: t('haircut'), icon: '✂️', desc: '', path: '/pages/services/services' },
-  { id: 2, name: t('permDye'), icon: '💇', desc: '', path: '/pages/services/services' },
+  { id: 1, name: t('haircut'), icon: '✂️', desc: '专业剪发', path: '/pages/services/services', size: 'large' },
+  { id: 2, name: t('permDye'), icon: '💇', desc: '健康烫染', path: '/pages/services/services', size: 'large' },
   { id: 3, name: t('coupon'), icon: '🎫', desc: '', path: '/pages/coupons/coupons' },
-  { id: 4, name: t('myPoints'), icon: '⭐', desc: '', path: '/pages/member/member' },
+  { id: 4, name: t('myPoints'), icon: '🪙', desc: '', path: '/pages/member/member' },
   { id: 5, name: t('giftCard'), icon: '💳', desc: '', path: '/pages/giftcard/giftcard' },
-  { id: 6, name: t('nursing'), icon: '🧴', desc: '', path: '/pages/mall/mall' }
+  { id: 6, name: '洗护产品', icon: '🧴', desc: '', path: '/pages/mall/mall' }
 ]
 
 const getProducts = (t) => [
   {
     id: 1,
-    name: t('newHaircut'),
+    name: '单人烫染直',
     price: 65,
-    originalPrice: 138,
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a36e?auto=format&fit=crop&q=80&w=400',
+    originalPrice: 438,
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hair%20salon%20perm%20dye%20styling%20service&image_size=square',
     tags: ['体验价'],
     sold: 0,
     discount: '限时优惠'
   },
   {
     id: 2,
-    name: t('washCutDry'),
+    name: '设计师洗剪吹',
     price: 28.88,
     originalPrice: 88.8,
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=400',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20haircut%20salon%20stylist%20working&image_size=square',
     tags: ['体验价'],
     sold: 0,
     discount: '限时优惠'
@@ -46,20 +46,20 @@ const getProducts = (t) => [
 const getGiftCards = (t) => [
   {
     id: 1,
-    name: t('newUserCard'),
+    name: '剪发月卡',
     price: 200,
     desc: '不限次数',
-    subDesc: t('permDye'),
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a36e?auto=format&fit=crop&q=80&w=400',
+    subDesc: '单人烫染直',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=purple%20gradient%20gift%20card%20voucher%20design&image_size=square',
     gradient: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)'
   },
   {
     id: 2,
-    name: t('premiumCard'),
+    name: '烫染年卡',
     price: 2000,
     desc: '不限次数',
-    subDesc: t('washCutDry'),
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=400',
+    subDesc: '设计师洗剪吹',
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=golden%20luxury%20gift%20card%20voucher%20design&image_size=square',
     gradient: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)'
   }
 ]
@@ -82,11 +82,11 @@ const Index = () => {
 
   return (
     <ScrollView className='home-page' scrollY style={{ direction: isRtl ? 'rtl' : 'ltr' }}>
-      {/* 顶部区域 - 包含语言切换 */}
+      {/* 顶部区域 - 标题 */}
       <View className='header-wrapper'>
         <View className='header'>
-          <LanguageSwitcher />
           <Text className='title'>{t('appName')}</Text>
+          <LanguageSwitcher />
         </View>
       </View>
 
@@ -111,7 +111,7 @@ const Index = () => {
                 mode='aspectFill'
               />
               <View className='banner-overlay'>
-                <Text className='banner-title'>{t('appName')}</Text>
+                <Text className='banner-title'>美发沙龙</Text>
                 <Text className='banner-subtitle'>释放百变造型</Text>
                 <View className='banner-features'>
                   <Text className='feature-item'>✓ 发型设计</Text>
@@ -127,28 +127,37 @@ const Index = () => {
 
       {/* 店铺公告 */}
       <View className='notice-section'>
-        <View className='notice-icon'>📢</View>
-        <View className='notice-content'>
-          <Text className='notice-info'>周三会员日，洗剪吹低至9.9起，烫染护全场5折，新客专享首次体验价</Text>
-        </View>
-        <View className='notice-close'>✕</View>
+        <View className='notice-tag'>店铺公告</View>
+        <Text className='notice-text'>周三会员日，洗剪吹低至9.9起...</Text>
       </View>
 
       {/* 服务入口 */}
-      <View className='services-grid'>
-        {services.map(service => (
-          <Navigator
-            key={service.id}
-            url={service.path}
-            className='service-item'
-          >
-            <View className='service-icon-box'>
-              <Text className='service-icon'>{service.icon}</Text>
-            </View>
-            <Text className='service-name'>{service.name}</Text>
-            {service.desc && <Text className='service-desc'>{service.desc}</Text>}
-          </Navigator>
-        ))}
+      <View className='services-section'>
+        <View className='services-grid-top'>
+          {services.slice(0, 2).map(service => (
+            <Navigator
+              key={service.id}
+              url={service.path}
+              className='service-item-large'
+            >
+              <Text className='service-icon-large'>{service.icon}</Text>
+              <Text className='service-name-large'>{service.name}</Text>
+              <Text className='service-desc-large'>{service.desc}</Text>
+            </Navigator>
+          ))}
+        </View>
+        <View className='services-grid-bottom'>
+          {services.slice(2, 6).map(service => (
+            <Navigator
+              key={service.id}
+              url={service.path}
+              className='service-item-small'
+            >
+              <Text className='service-icon-small'>{service.icon}</Text>
+              <Text className='service-name-small'>{service.name}</Text>
+            </Navigator>
+          ))}
+        </View>
       </View>
 
       {/* 搜索框 */}
@@ -159,7 +168,7 @@ const Index = () => {
 
       {/* 新品体验 */}
       <View className='section'>
-        <Text className='section-title'>{t('hotService')}</Text>
+        <Text className='section-title'>新品体验</Text>
         <View className='products-list'>
           {products.map(product => (
             <View key={product.id} className='product-card'>
@@ -171,7 +180,6 @@ const Index = () => {
               <View className='product-info'>
                 <Text className='product-name'>{product.name}</Text>
                 <View className='product-tags'>
-                  <Text className='discount-tag'>{product.discount}</Text>
                   <View className='timer'>
                     <Text className='timer-label'>活动仅剩</Text>
                     <View className='timer-values'>
@@ -196,11 +204,11 @@ const Index = () => {
                 <View className='price-row'>
                   <View className='price-info'>
                     <Text className='price-tag'>体验价</Text>
-                    <Text className='price'>{t('price')}{product.price}</Text>
-                    <Text className='original-price'>{t('price')}{product.originalPrice}</Text>
+                    <Text className='price'>¥{product.price}</Text>
+                    <Text className='original-price'>¥{product.originalPrice}</Text>
                   </View>
                   <View className='buy-btn' onClick={() => navigateToOrder(product)}>
-                    <Text className='buy-text'>{t('buyNow')}</Text>
+                    <Text className='buy-text'>去购买</Text>
                   </View>
                 </View>
                 <Text className='sold-text'>已售{product.sold}</Text>
@@ -214,7 +222,7 @@ const Index = () => {
       <View className='ad-banner'>
         <Image
           className='ad-image'
-          src='https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1200&h=400'
+          src='https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=beauty%20salon%20banner%20purple%20fashion%20model%20with%20white%20hair&image_size=landscape_16_9'
           mode='aspectFill'
         />
         <View className='ad-overlay'>
@@ -226,7 +234,7 @@ const Index = () => {
 
       {/* 礼品卡 */}
       <View className='section'>
-        <Text className='section-title'>{t('giftCard')}</Text>
+        <Text className='section-title'>礼品卡</Text>
         <View className='gift-cards'>
           {giftCards.map(card => (
             <View key={card.id} className='gift-card'>
@@ -240,7 +248,7 @@ const Index = () => {
                   <Text className='card-name'>{card.name}</Text>
                   <Text className='card-subdesc'>{card.subDesc}</Text>
                   <View className='card-price-row'>
-                    <Text className='card-price'>{t('price')}{card.price}</Text>
+                    <Text className='card-price'>¥{card.price}</Text>
                     <Text className='card-desc'>/{card.desc}</Text>
                   </View>
                   <Text className='card-sold'>已售0</Text>
@@ -257,7 +265,7 @@ const Index = () => {
         <View className='placeholder-area'>
           <Image
             className='placeholder-image'
-            src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=400'
+            src='https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hair%20care%20products%20shampoo%20bottle%20display&image_size=square'
             mode='aspectFill'
           />
         </View>

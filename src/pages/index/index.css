@@ -5,29 +5,28 @@
 
 /* 头部包装器 */
 .header-wrapper {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  background: #ffffff;
   padding-top: 10px;
 }
 
 /* 头部 */
 .header {
-  padding: 10px 20px 20px;
+  padding: 15px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header .title {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
-  color: #ffffff;
-  text-align: center;
+  color: #333333;
 }
 
 /* 轮播图 */
 .banner-section {
   width: 100%;
-  height: 420px;
+  height: 360px;
   position: relative;
   background-color: #f0e6ff;
 }
@@ -49,42 +48,42 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(124, 58, 237, 0.92) 0%, rgba(168, 85, 247, 0.5) 50%, transparent 100%);
-  padding: 200px 30px 40px;
+  background: linear-gradient(to top, rgba(124, 58, 237, 0.85) 0%, rgba(168, 85, 247, 0.4) 40%, transparent 100%);
+  padding: 160px 25px 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .banner-title {
-  font-size: 80px;
+  font-size: 64px;
   font-weight: bold;
   color: #ffffff;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .banner-subtitle {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 20px;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 6px 16px;
+  border-radius: 16px;
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   align-self: flex-start;
 }
 
 .banner-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 24px;
+  gap: 12px 20px;
 }
 
 .feature-item {
-  font-size: 28px;
+  font-size: 24px;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -92,113 +91,113 @@
 .notice-section {
   display: flex;
   align-items: center;
-  padding: 14px 20px;
-  margin: 0 20px 16px;
-  background-color: #faf5ff;
+  padding: 10px 20px;
+  margin: 12px 20px;
+  background-color: #ffffff;
   border-radius: 12px;
-  gap: 10px;
+  gap: 12px;
 }
 
-.notice-icon {
-  font-size: 28px;
+.notice-tag {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 8px 0 8px 0;
   flex-shrink: 0;
 }
 
-.notice-content {
+.notice-text {
+  font-size: 26px;
+  color: #666666;
   flex: 1;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.notice-info {
-  font-size: 26px;
-  color: #7c3aed;
-  display: inline-block;
-  animation: notice-marquee 8s linear infinite;
-  padding-left: 100%;
-}
-
-@keyframes notice-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-.notice-close {
-  font-size: 24px;
-  color: #a855f7;
-  flex-shrink: 0;
-  padding: 4px 6px;
-  opacity: 0.5;
-}
-
-/* 服务网格 */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding: 20px;
+/* 服务区域 */
+.services-section {
+  padding: 16px 20px;
   background-color: #ffffff;
   margin: 0 20px 16px;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.service-item {
+.services-grid-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.service-item-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  text-decoration: none;
+}
+
+.service-icon-large {
+  font-size: 72px;
+  color: #a855f7;
+  margin-bottom: 12px;
+}
+
+.service-name-large {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 6px;
+}
+
+.service-desc-large {
+  font-size: 24px;
+  color: #999999;
+}
+
+.services-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.service-item-small {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 16px 8px;
   border-radius: 12px;
-  transition: all 0.2s;
   text-decoration: none;
 }
 
-.service-item:active {
-  background-color: rgba(168, 85, 247, 0.08);
+.service-icon-small {
+  font-size: 52px;
+  color: #a855f7;
+  margin-bottom: 10px;
 }
 
-.service-icon-box {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
-}
-
-.service-icon {
-  font-size: 48px;
-}
-
-.service-name {
-  font-size: 32px;
-  font-weight: bold;
-  color: #333333;
-  margin-bottom: 4px;
-}
-
-.service-desc {
+.service-name-small {
   font-size: 24px;
-  color: #999999;
+  color: #333333;
 }
 
 /* 搜索框 */
 .search-box {
-  margin: -4px 20px 24px;
-  padding: 18px 24px;
-  background-color: #f8f5ff;
+  margin: 0 20px 24px;
+  padding: 16px 24px;
+  background-color: #f5f5f5;
   border-radius: 50px;
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 2px solid rgba(168, 85, 247, 0.15);
-}
-
-.search-box:active {
-  background-color: #ede9fe;
 }
 
 .search-icon {
@@ -221,23 +220,10 @@
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #333333;
   margin-bottom: 20px;
-  position: relative;
-  padding-left: 16px;
-}
-
-.section-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 6px;
-  border-radius: 3px;
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
 }
 
 /* 产品列表 */
@@ -248,88 +234,77 @@
 }
 
 .product-card {
-  background-color: #f8f5ff;
+  background-color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   display: flex;
+  border: 1px solid #f0f0f0;
 }
 
 .product-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 16px 0 0 16px;
-  background-color: #ede9fe;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  background-color: #f8f5ff;
+  margin: 12px;
 }
 
 .product-info {
   flex: 1;
-  padding: 16px 16px 16px 12px;
+  padding: 16px 12px 16px 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .product-name {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #333333;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .product-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.discount-tag {
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 24px;
-  font-weight: bold;
-  display: inline-block;
+  margin-bottom: 12px;
 }
 
 .timer {
-  border: 2px solid rgba(168, 85, 247, 0.25);
-  border-radius: 50px;
-  padding: 8px 16px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: rgba(168, 85, 247, 0.04);
 }
 
 .timer-label {
-  font-size: 26px;
+  font-size: 24px;
   color: #a855f7;
 }
 
 .timer-values {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
 
 .timer-item {
   background-color: #ffffff;
   border: 1px solid #a855f7;
-  border-radius: 6px;
-  padding: 4px 10px;
+  border-radius: 4px;
+  padding: 2px 6px;
 }
 
 .timer-num {
-  font-size: 26px;
+  font-size: 22px;
   color: #a855f7;
   font-weight: bold;
 }
 
 .timer-colon {
-  font-size: 24px;
+  font-size: 22px;
   color: #a855f7;
 }
 
@@ -341,46 +316,46 @@
 
 .price-info {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .price-tag {
   background: linear-gradient(135deg, #a855f7, #7c3aed);
   color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 24px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 22px;
   font-weight: bold;
 }
 
 .price {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
   color: #a855f7;
 }
 
 .original-price {
-  font-size: 28px;
+  font-size: 26px;
   color: #999999;
   text-decoration: line-through;
 }
 
 .buy-btn {
   background: linear-gradient(135deg, #a855f7, #7c3aed);
-  padding: 16px 40px;
+  padding: 12px 32px;
   border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
 }
 
 .buy-text {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #ffffff;
 }
 
 .sold-text {
-  font-size: 24px;
+  font-size: 22px;
   color: #999999;
   margin-top: 8px;
 }
@@ -388,7 +363,7 @@
 /* 广告横幅 */
 .ad-banner {
   position: relative;
-  height: 280px;
+  height: 240px;
   margin: 0 20px 16px;
   border-radius: 16px;
   overflow: hidden;
@@ -406,30 +381,29 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(124, 58, 237, 0.25));
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(124, 58, 237, 0.18));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(2px);
 }
 
 .ad-title {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
   color: #a855f7;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .ad-subtitle {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: bold;
   color: #333333;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .ad-desc {
-  font-size: 28px;
+  font-size: 26px;
   color: #666666;
 }
 
@@ -448,7 +422,7 @@
 
 .card-image-container {
   position: relative;
-  height: 340px;
+  height: 300px;
   border-radius: 0;
   overflow: hidden;
 }
@@ -464,45 +438,45 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .card-name {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .card-subdesc {
-  font-size: 26px;
+  font-size: 24px;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .card-price-row {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .card-price {
-  font-size: 60px;
+  font-size: 52px;
   font-weight: bold;
   color: #ffffff;
 }
 
 .card-desc {
-  font-size: 32px;
+  font-size: 28px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .card-sold {
-  font-size: 24px;
+  font-size: 22px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -517,7 +491,7 @@
 .placeholder-image {
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 /* 底部安全距离 */
