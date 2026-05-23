@@ -1,0 +1,195 @@
+.giftcard-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+.giftcard-header {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  padding: 30rpx 30rpx 40rpx;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.header-desc {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+.giftcard-tabs {
+  display: flex;
+  padding: 20rpx 30rpx;
+  background: white;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background: #a855f7;
+  border-radius: 2rpx;
+}
+
+.giftcard-list {
+  padding: 30rpx;
+}
+
+.giftcard-item {
+  margin-bottom: 30rpx;
+}
+
+.giftcard-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.giftcard-card.gold {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.giftcard-card.purple {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.giftcard-card::before {
+  content: '';
+  position: absolute;
+  right: -30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  background: #f5f5f5;
+  border-radius: 50%;
+}
+
+.giftcard-value {
+  font-size: 80rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.giftcard-value span {
+  font-size: 36rpx;
+}
+
+.giftcard-name {
+  font-size: 28rpx;
+  opacity: 0.9;
+  margin-bottom: 20rpx;
+}
+
+.giftcard-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.giftcard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: white;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.giftcard-price {
+  font-size: 32rpx;
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.giftcard-price span {
+  font-size: 26rpx;
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: white;
+  padding: 15rpx 40rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+
+.my-cards {
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.my-card-item {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.08);
+}
+
+.my-card-info {
+  flex: 1;
+}
+
+.my-card-value {
+  font-size: 40rpx;
+  color: #a855f7;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.my-card-value span {
+  font-size: 24rpx;
+}
+
+.my-card-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.use-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: white;
+  padding: 15rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}

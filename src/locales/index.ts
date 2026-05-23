@@ -1,0 +1,568 @@
+// 语言翻译配置
+export const translations = {
+  zh: {
+    // 通用
+    appName: '美发店',
+    save: '保存',
+    submit: '提交',
+    cancel: '取消',
+    confirm: '确认',
+    
+    // 导航
+    home: '首页',
+    reserve: '预约',
+    member: '会员中心',
+    back: '返回',
+    
+    // 首页
+    announcement: '店铺公告',
+    search: '搜索发型师、服务',
+    services: '服务分类',
+    popularProducts: '热门产品',
+    hotService: '热门服务',
+    giftCard: '礼品卡',
+    newHaircut: '新人洗剪吹',
+    washCutDry: '洗剪吹',
+    permDye: '烫染套餐',
+    nursing: '深层护理',
+    seeAll: '查看全部',
+    bookNow: '立即预约',
+    buyNow: '立即购买',
+    
+    // 服务分类
+    serviceCategory: '服务分类',
+    allServices: '全部服务',
+    haircut: '剪发',
+    perm: '烫发',
+    dye: '染发',
+    care: '护理',
+    styling: '造型',
+    price: '¥',
+    timeUnit: '分钟',
+    
+    // 发型师
+    hairStylists: '发型师',
+    searchStylist: '搜索发型师',
+    allStylists: '全部',
+    chief: '首席',
+    director: '总监',
+    senior: '资深',
+    junior: '新人',
+    servicesCount: '服务',
+    rating: '评分',
+    experience: '经验',
+    specialty: '擅长',
+    
+    // 积分商城
+    pointsMall: '积分商城',
+    myPoints: '可用积分',
+    pointsDetails: '积分明细',
+    earnPoints: '赚积分',
+    allProducts: '全部',
+    serviceExchange: '服务',
+    peripheral: '周边',
+    couponExchange: '优惠券',
+    points: '积分',
+    exchangeNow: '立即兑换',
+    
+    // 礼品卡
+    giftCards: '礼品卡',
+    buyGiftCard: '购买礼品卡',
+    myGiftCards: '我的礼品卡',
+    newUserCard: '新人专享卡',
+    premiumCard: '轻奢体验卡',
+    vipCard: 'VIP尊享卡',
+    diamondCard: '至尊钻石卡',
+    buyNowBtn: '立即购买',
+    useNow: '立即使用',
+    daysRemaining: '剩余',
+    validDays: '天',
+    validAfterPurchase: '购买后365天有效',
+    
+    // 预约
+    selectStylist: '选择发型师',
+    selectService: '选择服务',
+    selectDate: '选择日期',
+    selectTime: '选择时间',
+    remarks: '备注信息',
+    placeholderRemarks: '选填，请输入您的特殊需求...',
+    today: '今天',
+    tomorrow: '明天',
+    total: '合计',
+    bookNowBtn: '立即预约',
+    
+    // 订单确认
+    confirmOrder: '确认订单',
+    userInfo: '用户信息',
+    orderDetails: '订单详情',
+    coupon: '优惠券',
+    couponsAvailable: '张可用',
+    serviceAmount: '服务金额',
+    actualPayment: '实付金额',
+    actualPay: '实付金额',
+    paymentMethod: '支付方式',
+    payMethod: '支付方式',
+    wechatPay: '微信支付',
+    balancePay: '余额支付',
+    giftCardPay: '礼品卡',
+    giftCard: '礼品卡',
+    confirmPayment: '确认支付',
+    confirmPay: '确认支付',
+    
+    // 支付成功
+    paymentSuccess: '支付成功',
+    paySuccess: '支付成功',
+    orderConfirmed: '您的预约已确认，等待服务',
+    earnPoints: '获得积分',
+    getPoints: '获得 +58 积分',
+    redeemGift: '积分可在积分商城兑换好礼',
+    pointsExchange: '积分可在积分商城兑换好礼',
+    orderNumber: '订单编号',
+    paymentAmount: '支付金额',
+    payAmount: '支付金额',
+    serviceInfo: '服务详情',
+    serviceDetail: '服务详情',
+    serviceItem: '服务项目',
+    stylist: '发型师',
+    serviceTime: '服务时间',
+    storeLocation: '服务门店',
+    serviceStore: '服务门店',
+    backHome: '返回首页',
+    viewOrder: '查看订单',
+    
+    // 会员中心
+    memberCenter: '会员中心',
+    vipMember: 'VIP会员',
+    myPoints: '积分',
+    points: '积分',
+    myCoupons: '优惠券',
+    coupons: '优惠券',
+    myBalance: '余额',
+    balance: '余额',
+    myOrders: '我的订单',
+    viewAll: '查看全部',
+    viewAllOrders: '查看全部',
+    pendingService: '待服务',
+    completed: '已完成',
+    pendingReview: '待评价',
+    refund: '退款',
+    myFavoriteStylists: '我的发型师',
+    myStylists: '我的发型师',
+    myStores: '我的门店',
+    profile: '个人信息',
+    settings: '设置',
+    
+    // 个人信息
+    personalInfo: '个人信息',
+    avatar: '头像',
+    nickname: '昵称',
+    phoneNumber: '手机号',
+    phone: '手机号',
+    gender: '性别',
+    birthday: '生日',
+    city: '所在城市',
+    notSet: '未设置',
+    male: '男',
+    female: '女',
+    memberCode: '会员码',
+    changePassword: '修改密码',
+    
+    // 语言切换
+    language: '语言',
+    chinese: '中文',
+    kazakhArabic: 'قازاقشا',
+    kazakhCyrillic: 'Казакша',
+  },
+  kk: {
+    // 通用
+    appName: 'Салон',
+    save: 'Сақтау',
+    submit: 'Жіберу',
+    cancel: 'Болдырмау',
+    confirm: 'Күшімді қосу',
+    
+    // 导航
+    home: 'Басты бет',
+    reserve: 'Брондау',
+    member: 'Мемберлік',
+    back: 'Артқа',
+    
+    // 首页
+    announcement: 'Дүкен хабарламасы',
+    search: 'Сәлөшілерді, қызметтерді іздеу',
+    services: 'Категориялар',
+    popularProducts: 'Ерекше өнімдер',
+    hotService: 'Ерекше қызмет',
+    giftCard: 'Сыйлық картасы',
+    newHaircut: 'Жаңа қолданылатын жуу-қосу-шашu',
+    washCutDry: 'Жуу-қосу-шашu',
+    permDye: 'Пермь бояу пакеті',
+    nursing: 'Терең қызмет көрсету',
+    seeAll: 'Барлығын көру',
+    bookNow: 'Дербес брондау',
+    buyNow: 'Дербес сатып алу',
+    
+    // 服务分类
+    serviceCategory: 'Категориялар',
+    allServices: 'Барлық қызметтер',
+    haircut: 'Кесілу',
+    perm: 'Пермь',
+    dye: 'Бояу',
+    care: 'Кезек',
+    styling: 'Стиль',
+    price: '₸',
+    timeUnit: 'минут',
+    
+    // 发型师
+    hairStylists: 'Сәлөшілер',
+    searchStylist: 'Сәлөшілерді іздеу',
+    allStylists: 'Барлығы',
+    chief: 'Бас',
+    director: 'Директор',
+    senior: 'Жоғарғы',
+    junior: 'Жаңа',
+    servicesCount: 'К қызмет',
+    rating: 'Бағасы',
+    experience: 'Тәжірибе',
+    specialty: 'Маманданған',
+    
+    // 积分商城
+    pointsMall: 'Ойындар дүкені',
+    myPoints: 'Балдар',
+    pointsDetails: 'Балдар тіркелгені',
+    earnPoints: 'Бал жинау',
+    allProducts: 'Барлығы',
+    serviceExchange: 'Қызмет',
+    peripheral: 'Айналайын',
+    couponExchange: 'Купон',
+    points: 'бал',
+    exchangeNow: 'Дербес айырмасын алу',
+    
+    // 礼品卡
+    giftCards: 'Сыйлық картасы',
+    buyGiftCard: 'Сыйлық картасын сатып алу',
+    myGiftCards: 'Менің сыйлық картасым',
+    newUserCard: 'Жаңа қолданушыларға арналған карта',
+    premiumCard: 'Премиум карта',
+    vipCard: 'VIP карта',
+    diamondCard: 'Алмас карта',
+    buyNowBtn: 'Дербес сатып алу',
+    useNow: 'Дербес қолданыңыз',
+    daysRemaining: 'Қалған күні:',
+    validDays: 'күн',
+    validAfterPurchase: 'Сатып алғаннан кейін 365 күнге дейін жарамды',
+    
+    // 预约
+    selectStylist: 'Сәлөшілерді таңдау',
+    selectService: 'Кызметті таңдау',
+    selectDate: 'Күнді таңдау',
+    selectTime: 'Уақытты таңдау',
+    remarks: 'Ескертпелер',
+    placeholderRemarks: 'Қосымша талаптарды енгізіңіз...',
+    today: 'Бүгін',
+    tomorrow: 'Ертең',
+    total: 'Жалпы',
+    bookNowBtn: 'Дербес брондау',
+    
+    // 订单确认
+    confirmOrder: 'Заказды растау',
+    userInfo: 'Пайдаланушы ақпараты',
+    orderDetails: 'Заказ мәліметтері',
+    coupon: 'Купон',
+    couponsAvailable: 'дана қолданылады',
+    serviceAmount: 'Кызмет сомасы',
+    actualPayment: 'Нақты төлем',
+    actualPay: 'Нақты төлем',
+    paymentMethod: 'Төлем әдісі',
+    payMethod: 'Төлем әдісі',
+    wechatPay: 'WeChat төлем',
+    balancePay: 'Баланс төлем',
+    giftCardPay: 'Сыйлық картасы',
+    giftCard: 'Сыйлық картасы',
+    confirmPayment: 'Төлемді растау',
+    confirmPay: 'Төлемді растау',
+    
+    // 支付成功
+    paymentSuccess: 'Төлем сәтті өтті',
+    paySuccess: 'Төлем сәтті өтті',
+    orderConfirmed: 'Сіздің брондауыңыз расталды, қызмет күтілуде',
+    earnPoints: 'Алынған балдар',
+    getPoints: '+58 бал алды',
+    redeemGift: 'Балдармен ойындар дүкенінен сыйлық алып аласыз',
+    pointsExchange: 'Балдармен ойындар дүкенінен сыйлық алып аласыз',
+    orderNumber: 'Заказ нөмірі',
+    paymentAmount: 'Төлем сомасы',
+    payAmount: 'Төлем сомасы',
+    serviceInfo: 'Кызмет мәліметтері',
+    serviceDetail: 'Кызмет мәліметтері',
+    serviceItem: 'Кызмет түрі',
+    stylist: 'Сәлөші',
+    serviceTime: 'Кызмет уақыты',
+    storeLocation: 'Дүкендегі орны',
+    serviceStore: 'Дүкендегі орны',
+    backHome: 'Басты бетке қайту',
+    viewOrder: 'Заказды көру',
+    
+    // 会员中心
+    memberCenter: 'Мемберлік орталығы',
+    vipMember: 'VIP мүшесі',
+    myPoints: 'Балдар',
+    points: 'Балдар',
+    myCoupons: 'Купондар',
+    coupons: 'Купондар',
+    myBalance: 'Баланс',
+    balance: 'Баланс',
+    myOrders: 'Менің заказдарым',
+    viewAll: 'Барлығын көру',
+    viewAllOrders: 'Барлығын көру',
+    pendingService: 'Кызмет күтілуде',
+    completed: 'Аяқталды',
+    pendingReview: 'Пікірлер күтілуде',
+    refund: 'Айырбасты',
+    myFavoriteStylists: 'Менің сүйікті сәлөшілерім',
+    myStylists: 'Менің сәлөшілерім',
+    myStores: 'Менің дүкендерім',
+    profile: 'Жеке ақпарат',
+    settings: 'Параметрлер',
+    
+    // 个人信息
+    personalInfo: 'Жеке ақпарат',
+    avatar: 'Сурет',
+    nickname: 'Лақап есім',
+    phoneNumber: 'Телефон нөмірі',
+    phone: 'Телефон нөмірі',
+    gender: 'Жынысы',
+    birthday: 'Туған күні',
+    city: 'Город',
+    notSet: 'Орнатылмаған',
+    male: 'Ер',
+    female: 'Әйел',
+    memberCode: 'Мемберлік коды',
+    changePassword: 'Парольді өзгерту',
+    
+    // 语言切换
+    language: 'Тіл',
+    chinese: '中文',
+    kazakhArabic: 'قازاقشا',
+    kazakhCyrillic: 'Казакша',
+  },
+  kkArabic: {
+    // 通用
+    appName: 'سالون',
+    save: 'ساقتاۋ',
+    submit: 'ٴجىبەرۋ',
+    cancel: 'بولدىرماۋ',
+    confirm: 'كۇشىمدى قوسۋ',
+    
+    // 导航
+    home: 'باستى بەت',
+    reserve: 'برونداۋ',
+    member: 'مەمبەرلىك',
+    back: 'ارتقا',
+    
+    // 首页
+    announcement: 'دۇكەن حابارلاماسى',
+    search: 'سەلوشىلەردى، قىزمەتتەردى ىزدەۋ',
+    services: 'كاتەگوريالار',
+    popularProducts: 'ەرەكشە ونىمدەر',
+    hotService: 'ەرەكشە قىزمەت',
+    giftCard: 'سىيلىق كارتاسى',
+    newHaircut: 'جانە قولدانىلاتىن جۋۋ-قوسۋ-شاشۋ',
+    washCutDry: 'جۋۋ-قوسۋ-شاشۋ',
+    permDye: 'پەرمى بوياۋ پاكەتى',
+    nursing: 'تەرەڭ قىزمەت كورسەتۋ',
+    seeAll: 'بارلىعىن كورۋ',
+    bookNow: 'دەربەس برونداۋ',
+    buyNow: 'دەربەس ساتىپ الۋ',
+    
+    // 服务分类
+    serviceCategory: 'كاتەگوريالار',
+    allServices: 'بارلىق قىزمەتتەر',
+    haircut: 'كەسىلۋ',
+    perm: 'پەرمى',
+    dye: 'بوياۋ',
+    care: 'كەزەك',
+    styling: 'ستىيل',
+    price: '₸',
+    timeUnit: 'مينۋت',
+    
+    // 发型师
+    hairStylists: 'سەلوشىلەر',
+    searchStylist: 'سەلوشىلەردى ىزدەۋ',
+    allStylists: 'بارلىعى',
+    chief: 'باس',
+    director: 'ديرەكتور',
+    senior: 'جوعارعى',
+    junior: 'جانە',
+    servicesCount: 'ك قىزمەت',
+    rating: 'باعاسى',
+    experience: 'تەجىريبە',
+    specialty: 'ماماندانعان',
+    
+    // 积分商城
+    pointsMall: 'ويىندار دۇكەنى',
+    myPoints: 'بالدار',
+    pointsDetails: 'بالدار تىركەلگەنى',
+    earnPoints: 'بال جيناۋ',
+    allProducts: 'بارلىعى',
+    serviceExchange: 'قىزمەت',
+    peripheral: 'اينالايىن',
+    couponExchange: 'كۇپون',
+    points: 'بال',
+    exchangeNow: 'دەربەس ايىرماسىن الۋ',
+    
+    // 礼品卡
+    giftCards: 'سىيلىق كارتاسى',
+    buyGiftCard: 'سىيلىق كارتاسىن ساتىپ الۋ',
+    myGiftCards: 'مەنىڭ سىيلىق كارتاسىم',
+    newUserCard: 'جانە قولدانۋشىلارعا ارنالعان كارتا',
+    premiumCard: 'پرەميۋم كارتا',
+    vipCard: 'VIP كارتا',
+    diamondCard: 'الماس كارتا',
+    buyNowBtn: 'دەربەس ساتىپ الۋ',
+    useNow: 'دەربەس قولدانىڭىز',
+    daysRemaining: 'قالعان كۇنى:',
+    validDays: 'كۇن',
+    validAfterPurchase: 'ساتىپ العاننان كەيىن 365 كۇنگە دەيىن جارامدى',
+    
+    // 预约
+    selectStylist: 'سەلوشىلەردى تاڭداۋ',
+    selectService: 'قىزمەتتى تاڭداۋ',
+    selectDate: 'كۇندى تاڭداۋ',
+    selectTime: 'ۋاقىتتى تاڭداۋ',
+    remarks: 'ەسكەرتپەلەر',
+    placeholderRemarks: 'قوسىمشا تالاپتاردى ەنگىزىڭىز...',
+    today: 'بۇگىن',
+    tomorrow: 'ەرتەڭ',
+    total: 'جالپى',
+    bookNowBtn: 'دەربەس برونداۋ',
+    
+    // 订单确认
+    confirmOrder: 'زاكازدى راستاۋ',
+    userInfo: 'پايدالانۋشى اقپاراتى',
+    orderDetails: 'زاكاز مەلۋماتتەرى',
+    coupon: 'كۇپون',
+    couponsAvailable: 'دانا قولدانىلادى',
+    serviceAmount: 'قىزمەت سوماسى',
+    actualPayment: 'ناقتى تۇلەم',
+    actualPay: 'ناقتى تۇلەم',
+    paymentMethod: 'تۇلەم ەڭسەسى',
+    payMethod: 'تۇلەم ەڭسەسى',
+    wechatPay: 'WeChat تۇلەم',
+    balancePay: 'بالانس تۇلەم',
+    giftCardPay: 'سىيلىق كارتاسى',
+    giftCard: 'سىيلىق كارتاسى',
+    confirmPayment: 'تۇلەمدى راستاۋ',
+    confirmPay: 'تۇلەمدى راستاۋ',
+    
+    // 支付成功
+    paymentSuccess: 'تۇلەم سەتتى ٴوتتى',
+    paySuccess: 'تۇلەم سەتتى ٴوتتى',
+    orderConfirmed: 'سىزدىڭ برونداۋىڭىز راستالدى، قىزمەت كۇتىلۋدە',
+    earnPoints: 'الىنعان بالدار',
+    getPoints: '+58 بال الدى',
+    redeemGift: 'بالدارمەن ويىندار دۇكەنىنەن سىيلىق الىپ الاسىز',
+    pointsExchange: 'بالدارمەن ويىندار دۇكەنىنەن سىيلىق الىپ الاسىز',
+    orderNumber: 'زاكاز نومىرى',
+    paymentAmount: 'تۇلەم سوماسى',
+    payAmount: 'تۇلەم سوماسى',
+    serviceInfo: 'قىزمەت مەلۋماتتەرى',
+    serviceDetail: 'قىزمەت مەلۋماتتەرى',
+    serviceItem: 'قىزمەت تۇرى',
+    stylist: 'سەلوشى',
+    serviceTime: 'قىزمەت ۋاقىتى',
+    storeLocation: 'دۇكەندەگى ورنى',
+    serviceStore: 'دۇكەندەگى ورنى',
+    backHome: 'باستى بەتكە قايتۋ',
+    viewOrder: 'زاكازدى كورۋ',
+    
+    // 会员中心
+    memberCenter: 'مەمبەرلىك ورتالىعى',
+    vipMember: 'VIP مۇشەسى',
+    myPoints: 'بالدار',
+    points: 'بالدار',
+    myCoupons: 'كۇپوندار',
+    coupons: 'كۇپوندار',
+    myBalance: 'بالانس',
+    balance: 'بالانس',
+    myOrders: 'مەنىڭ زاكازدارىم',
+    viewAll: 'بارلىعىن كورۋ',
+    viewAllOrders: 'بارلىعىن كورۋ',
+    pendingService: 'قىزمەت كۇتىلۋدە',
+    completed: 'اياقتالدى',
+    pendingReview: 'پىكىرلەر كۇتىلۋدە',
+    refund: 'ايىرباستى',
+    myFavoriteStylists: 'مەنىڭ سۇيىكتى سەلوشىلەرىم',
+    myStylists: 'مەنىڭ سەلوشىلەرىم',
+    myStores: 'مەنىڭ دۇكەندەرىم',
+    profile: 'جەكە اقپارات',
+    settings: 'پارامەتتەرلەر',
+    
+    // 个人信息
+    personalInfo: 'جەكە اقپارات',
+    avatar: 'سۋرەت',
+    nickname: 'لاقاپ ەسىم',
+    phoneNumber: 'تەلەفون نومىرى',
+    phone: 'تەلەفون نومىرى',
+    gender: 'جىنىسى',
+    birthday: 'تۋعان كۇنى',
+    city: 'گورود',
+    notSet: 'ورناتىلماعان',
+    male: 'ەر',
+    female: 'ٴايەل',
+    memberCode: 'مەمبەرلىك كودى',
+    changePassword: 'پارولدى ٶزگەرتۋ',
+    
+    // 语言切换
+    language: 'تىل',
+    chinese: '中文',
+    kazakhArabic: 'قازاقشا',
+    kazakhCyrillic: 'Казакша',
+  }
+};
+
+export type Language = 'zh' | 'kk' | 'kkArabic';
+
+// 语言管理类
+export class LanguageManager {
+  private currentLang: Language = 'zh';
+  
+  constructor() {
+    // 从本地存储获取语言设置
+    const savedLang = localStorage.getItem('currentLanguage') as Language;
+    if (savedLang && translations[savedLang]) {
+      this.currentLang = savedLang;
+    }
+  }
+  
+  getCurrentLang(): Language {
+    return this.currentLang;
+  }
+  
+  setLanguage(lang: Language) {
+    if (translations[lang]) {
+      this.currentLang = lang;
+      localStorage.setItem('currentLanguage', lang);
+      // 触发页面重新渲染
+      window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+    }
+  }
+  
+  t(key: string): string {
+    const keys = key.split('.');
+    let value: any = translations[this.currentLang];
+    
+    for (const k of keys) {
+      if (value[k] !== undefined) {
+        value = value[k];
+      } else {
+        console.warn(`Translation key "${key}" not found for language "${this.currentLang}"`);
+        return key;
+      }
+    }
+    
+    return value;
+  }
+}
+
+export const langManager = new LanguageManager();

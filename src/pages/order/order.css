@@ -1,0 +1,257 @@
+.order-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 140rpx;
+}
+
+.language-wrapper {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  padding: 20rpx 30rpx;
+}
+
+.section {
+  background: white;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5rpx;
+}
+
+.user-phone {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.info-arrow {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.order-detail {
+  display: flex;
+}
+
+.order-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.order-service {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.order-stylist {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.order-time {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.coupon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupon-left {
+  display: flex;
+  align-items: center;
+}
+
+.coupon-icon {
+  font-size: 32rpx;
+  margin-right: 15rpx;
+}
+
+.coupon-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.coupon-right {
+  display: flex;
+  align-items: center;
+}
+
+.coupon-count {
+  font-size: 26rpx;
+  color: #a855f7;
+  margin-right: 10rpx;
+}
+
+.coupon-arrow {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.price-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.price-value {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.price-value.discount {
+  color: #f56565;
+}
+
+.price-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.total-label {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.total-value {
+  font-size: 36rpx;
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.total-value span {
+  font-size: 24rpx;
+}
+
+.pay-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.pay-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background: #f9f9f9;
+  border-radius: 10rpx;
+}
+
+.pay-left {
+  display: flex;
+  align-items: center;
+}
+
+.pay-icon {
+  font-size: 40rpx;
+  margin-right: 15rpx;
+}
+
+.pay-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.pay-radio {
+  width: 36rpx;
+  height: 36rpx;
+  border: 3rpx solid #ddd;
+  border-radius: 50%;
+}
+
+.pay-radio.active {
+  border-color: #a855f7;
+  background: #a855f7;
+  position: relative;
+}
+
+.pay-radio.active::after {
+  content: '✓';
+  color: white;
+  font-size: 24rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.order-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.footer-info {
+  flex: 1;
+}
+
+.footer-total {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 5rpx;
+}
+
+.footer-price {
+  font-size: 36rpx;
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.footer-price span {
+  font-size: 24rpx;
+}
+
+.pay-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: white;
+  padding: 20rpx 60rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}

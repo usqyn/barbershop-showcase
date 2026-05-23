@@ -1,5 +1,6 @@
 import { Component, ReactNode } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
+import { LanguageProvider } from './contexts/LanguageContext'
 import './app.css'
 
 class App extends Component<{children?: ReactNode}> {
@@ -13,9 +14,11 @@ class App extends Component<{children?: ReactNode}> {
 
   render () {
     return (
-      <View id="app">
-        {this.props.children}
-      </View>
+      <LanguageProvider>
+        <View id="app">
+          {this.props.children}
+        </View>
+      </LanguageProvider>
     )
   }
 }
