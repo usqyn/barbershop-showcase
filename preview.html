@@ -72,11 +72,11 @@
             color: #667eea;
         }
 
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        .preview-container {
+            display: flex;
+            justify-content: center;
             gap: 40px;
-            margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .phone-mockup {
@@ -85,17 +85,26 @@
             padding: 15px;
             box-shadow: 0 50px 100px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
+            width: 380px;
         }
 
         .phone-mockup:hover {
             transform: translateY(-10px);
         }
 
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
         .phone-screen {
             background: #f5f5f5;
             border-radius: 30px;
             overflow: hidden;
-            min-height: 600px;
+            min-height: 650px;
             display: flex;
             flex-direction: column;
         }
@@ -145,6 +154,12 @@
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .mock-row:hover {
+            background: #f9f9f9;
         }
 
         .mock-icon {
@@ -186,6 +201,13 @@
             padding: 25px 15px;
             border-radius: 15px;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mock-grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
         }
 
         .mock-avatar {
@@ -204,6 +226,13 @@
             display: inline-block;
             margin-top: 20px;
             font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mock-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
         }
 
         .phone-notch {
@@ -228,11 +257,6 @@
             font-weight: bold;
         }
 
-        .rtl {
-            direction: rtl;
-            font-family: 'Noto Sans Arabic', 'Noto Sans SC', sans-serif;
-        }
-
         .bottom-nav {
             position: relative;
             background: white;
@@ -247,6 +271,17 @@
             text-align: center;
             font-size: 12px;
             color: #999;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 5px 10px;
+        }
+
+        .nav-item:hover {
+            color: #a855f7;
+        }
+
+        .nav-item.active {
+            color: #a855f7;
         }
 
         .nav-icon {
@@ -254,8 +289,44 @@
             margin-bottom: 5px;
         }
 
-        .nav-item.active {
-            color: #a855f7;
+        .clickable {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .clickable:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+        }
+
+        .order-tab {
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .order-tab:hover {
+            background: #f5f5f5;
+        }
+
+        .date-item {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .date-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-card {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            background: #f9f9f9;
+            border-left-color: #9333ea;
         }
 
         @media (max-width: 768px) {
@@ -263,8 +334,14 @@
                 font-size: 32px;
             }
 
-            .preview-grid {
-                grid-template-columns: 1fr;
+            .preview-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .phone-mockup {
+                width: 100%;
+                max-width: 380px;
             }
         }
     </style>
@@ -272,8 +349,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>理发店小程序</h1>
-            <p>多语言微信小程序展示 - 中文 · قازاقشا · Казакша</p>
+            <h1 id="pageTitle">理发店小程序</h1>
+            <p id="pageSubtitle">多语言微信小程序展示 - 中文 · قازاقشا · Казакша</p>
             
             <div class="language-switcher">
                 <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
@@ -282,46 +359,46 @@
             </div>
         </div>
 
-        <div class="preview-grid" id="previewContainer">
+        <div class="preview-container">
             <!-- 首页 -->
-            <div class="phone-mockup" data-lang="zh" data-lang-ar="首页" data-lang-kk="Басты бет">
+            <div class="phone-mockup">
                 <div class="phone-screen">
                     <div class="screen-header">
-                        <div class="language-badge">中文</div>
-                        <div class="mock-title">美发店</div>
-                        <div class="mock-subtitle">店铺公告：春节期间营业时间调整</div>
+                        <div class="language-badge" data-lang-badge>中文</div>
+                        <div class="mock-title" data-t="title-home">美发店</div>
+                        <div class="mock-subtitle" data-t="announcement">店铺公告：春节期间营业时间调整</div>
                     </div>
                     <div class="screen-content">
                         <div class="mock-section">
-                            <div style="font-weight: bold; margin-bottom: 15px;">服务分类</div>
+                            <div style="font-weight: bold; margin-bottom: 15px;" data-t="serviceCategory">服务分类</div>
                             <div class="mock-grid">
-                                <div class="mock-grid-item">剪发</div>
-                                <div class="mock-grid-item">烫发</div>
-                                <div class="mock-grid-item">染发</div>
-                                <div class="mock-grid-item">护理</div>
+                                <div class="mock-grid-item" onclick="switchToPage('services')" data-t="haircut">剪发</div>
+                                <div class="mock-grid-item" onclick="switchToPage('services')" data-t="perm">烫发</div>
+                                <div class="mock-grid-item" onclick="switchToPage('services')" data-t="dye">染发</div>
+                                <div class="mock-grid-item" onclick="switchToPage('services')" data-t="care">护理</div>
                             </div>
                         </div>
                         <div class="mock-card">
-                            <h4 style="margin-bottom: 10px;">热门服务</h4>
-                            <p style="color: #999; font-size: 14px;">新人洗剪吹 ¥38</p>
+                            <h4 style="margin-bottom: 10px;" data-t="hotService">热门服务</h4>
+                            <p style="color: #999; font-size: 14px;" data-t="newHaircut">新人洗剪吹 ¥38</p>
                         </div>
                     </div>
                     <div class="bottom-nav">
-                        <div class="nav-item active">
+                        <div class="nav-item active" onclick="switchToPage('home')">
                             <div class="nav-icon">🏠</div>
-                            <div>首页</div>
+                            <div data-nav="home">首页</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('reserve')">
                             <div class="nav-icon">📅</div>
-                            <div>预约</div>
+                            <div data-nav="reserve">预约</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('stylists')">
                             <div class="nav-icon">💇</div>
-                            <div>发型师</div>
+                            <div data-nav="stylists">发型师</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('member')">
                             <div class="nav-icon">👤</div>
-                            <div>我的</div>
+                            <div data-nav="member">我的</div>
                         </div>
                     </div>
                 </div>
@@ -331,64 +408,87 @@
             <div class="phone-mockup">
                 <div class="phone-screen">
                     <div class="screen-header" style="padding-top: 80px;">
-                        <div class="language-badge">中文</div>
+                        <div class="language-badge" data-lang-badge>中文</div>
                         <div class="mock-avatar" style="background: linear-gradient(135deg, #fff 0%, #ddd 100%);"></div>
-                        <div class="mock-title">张小明</div>
-                        <div class="mock-subtitle">VIP会员</div>
+                        <div class="mock-title" data-t="memberName">张小明</div>
+                        <div class="mock-subtitle" data-t="vipMember">VIP会员</div>
                     </div>
                     <div class="screen-content" style="padding-top: 30px;">
                         <div class="mock-section" style="display: flex; justify-content: space-around; text-align: center;">
                             <div>
                                 <div style="font-size: 24px; font-weight: bold; color: #a855f7;">2,580</div>
-                                <div style="font-size: 14px; color: #999;">积分</div>
+                                <div style="font-size: 14px; color: #999;" data-t="points">积分</div>
                             </div>
                             <div>
                                 <div style="font-size: 24px; font-weight: bold; color: #a855f7;">12</div>
-                                <div style="font-size: 14px; color: #999;">优惠券</div>
+                                <div style="font-size: 14px; color: #999;" data-t="coupons">优惠券</div>
                             </div>
                             <div>
                                 <div style="font-size: 24px; font-weight: bold; color: #a855f7;">¥200</div>
-                                <div style="font-size: 14px; color: #999;">余额</div>
+                                <div style="font-size: 14px; color: #999;" data-t="balance">余额</div>
                             </div>
                         </div>
                         <div class="mock-section">
-                            <div style="font-weight: bold; margin-bottom: 15px;">我的订单</div>
+                            <div style="font-weight: bold; margin-bottom: 15px;" data-t="myOrders">我的订单</div>
                             <div style="display: flex; justify-content: space-around;">
-                                <div style="text-align: center;">
+                                <div class="order-tab" style="text-align: center;">
                                     <div style="font-size: 24px;">⏰</div>
-                                    <div style="font-size: 12px; color: #666;">待服务</div>
+                                    <div style="font-size: 12px; color: #666;" data-t="pendingService">待服务</div>
                                 </div>
-                                <div style="text-align: center;">
+                                <div class="order-tab" style="text-align: center;">
                                     <div style="font-size: 24px;">✅</div>
-                                    <div style="font-size: 12px; color: #666;">已完成</div>
+                                    <div style="font-size: 12px; color: #666;" data-t="completed">已完成</div>
                                 </div>
-                                <div style="text-align: center;">
+                                <div class="order-tab" style="text-align: center;">
                                     <div style="font-size: 24px;">💬</div>
-                                    <div style="font-size: 12px; color: #666;">待评价</div>
+                                    <div style="font-size: 12px; color: #666;" data-t="pendingReview">待评价</div>
                                 </div>
-                                <div style="text-align: center;">
+                                <div class="order-tab" style="text-align: center;">
                                     <div style="font-size: 24px;">🔄</div>
-                                    <div style="font-size: 12px; color: #666;">退款</div>
+                                    <div style="font-size: 12px; color: #666;" data-t="refund">退款</div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="mock-section">
+                            <div class="mock-row" onclick="showToast('积分商城')">
+                                <div class="mock-icon">🏪</div>
+                                <div class="mock-info">
+                                    <h4 data-t="pointsMall">积分商城</h4>
+                                </div>
+                                <span style="color: #999;">›</span>
+                            </div>
+                            <div class="mock-row" onclick="showToast('礼品卡')">
+                                <div class="mock-icon">🎁</div>
+                                <div class="mock-info">
+                                    <h4 data-t="giftCards">礼品卡</h4>
+                                </div>
+                                <span style="color: #999;">›</span>
+                            </div>
+                            <div class="mock-row" onclick="showToast('个人信息')">
+                                <div class="mock-icon">👤</div>
+                                <div class="mock-info">
+                                    <h4 data-t="profile">个人信息</h4>
+                                </div>
+                                <span style="color: #999;">›</span>
                             </div>
                         </div>
                     </div>
                     <div class="bottom-nav">
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('home')">
                             <div class="nav-icon">🏠</div>
-                            <div>首页</div>
+                            <div data-nav="home">首页</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('reserve')">
                             <div class="nav-icon">📅</div>
-                            <div>预约</div>
+                            <div data-nav="reserve">预约</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('stylists')">
                             <div class="nav-icon">💇</div>
-                            <div>发型师</div>
+                            <div data-nav="stylists">发型师</div>
                         </div>
-                        <div class="nav-item active">
+                        <div class="nav-item active" onclick="switchToPage('member')">
                             <div class="nav-icon">👤</div>
-                            <div>我的</div>
+                            <div data-nav="member">我的</div>
                         </div>
                     </div>
                 </div>
@@ -398,132 +498,164 @@
             <div class="phone-mockup">
                 <div class="phone-screen">
                     <div class="screen-header" style="padding: 30px 20px;">
-                        <div class="language-badge">中文</div>
+                        <div class="language-badge" data-lang-badge>中文</div>
                     </div>
                     <div class="screen-content">
                         <div class="mock-section">
-                            <div style="font-weight: bold; margin-bottom: 15px;">选择发型师</div>
-                            <div class="mock-row">
+                            <div style="font-weight: bold; margin-bottom: 15px;" data-t="selectStylist">选择发型师</div>
+                            <div class="mock-row" onclick="switchToPage('stylists')">
                                 <div class="mock-icon">💇</div>
                                 <div class="mock-info">
-                                    <h4>阿杰 - 首席造型师</h4>
-                                    <p>擅长：潮流烫染、造型设计</p>
+                                    <h4 data-t="stylistName">阿杰 - 首席造型师</h4>
+                                    <p data-t="stylistDesc">擅长：潮流烫染、造型设计</p>
                                 </div>
+                                <span style="color: #999;">›</span>
                             </div>
                         </div>
                         <div class="mock-section">
-                            <div style="font-weight: bold; margin-bottom: 15px;">选择服务</div>
-                            <div class="mock-card" style="background: #f9f9f9; border-left: 4px solid #a855f7;">
+                            <div style="font-weight: bold; margin-bottom: 15px;" data-t="selectService">选择服务</div>
+                            <div class="mock-card service-card" style="background: #f9f9f9; border-left: 4px solid #a855f7;">
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <div>
-                                        <h4>潮流剪发</h4>
-                                        <p style="font-size: 12px; color: #999;">约40分钟</p>
+                                        <h4 data-t="haircutService">潮流剪发</h4>
+                                        <p style="font-size: 12px; color: #999;" data-t="duration40">约40分钟</p>
                                     </div>
                                     <div style="color: #a855f7; font-weight: bold;">¥68</div>
                                 </div>
                             </div>
                         </div>
                         <div class="mock-section">
-                            <div style="font-weight: bold; margin-bottom: 15px;">选择日期</div>
+                            <div style="font-weight: bold; margin-bottom: 15px;" data-t="selectDate">选择日期</div>
                             <div style="display: flex; gap: 10px;">
-                                <div style="flex: 1; background: #a855f7; color: white; padding: 10px; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 12px;">今天</div>
+                                <div class="date-item" style="flex: 1; background: #a855f7; color: white; padding: 10px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 12px;" data-t="today">今天</div>
                                     <div style="font-size: 18px; font-weight: bold;">12</div>
                                 </div>
-                                <div style="flex: 1; background: white; padding: 10px; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 12px; color: #666;">明天</div>
+                                <div class="date-item" style="flex: 1; background: white; padding: 10px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 12px; color: #666;" data-t="tomorrow">明天</div>
                                     <div style="font-size: 18px; font-weight: bold; color: #333;">13</div>
                                 </div>
-                                <div style="flex: 1; background: white; padding: 10px; border-radius: 10px; text-align: center;">
+                                <div class="date-item" style="flex: 1; background: white; padding: 10px; border-radius: 10px; text-align: center;">
                                     <div style="font-size: 12px; color: #666;">周五</div>
                                     <div style="font-size: 18px; font-weight: bold; color: #333;">14</div>
                                 </div>
                             </div>
                         </div>
                         <div style="text-align: center; margin-top: 20px;">
-                            <div class="mock-button">立即预约</div>
+                            <div class="mock-button" onclick="showToast('预约成功！')" data-t="bookNow">立即预约</div>
                         </div>
                     </div>
                     <div class="bottom-nav">
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('home')">
                             <div class="nav-icon">🏠</div>
-                            <div>首页</div>
+                            <div data-nav="home">首页</div>
                         </div>
-                        <div class="nav-item active">
+                        <div class="nav-item active" onclick="switchToPage('reserve')">
                             <div class="nav-icon">📅</div>
-                            <div>预约</div>
+                            <div data-nav="reserve">预约</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('stylists')">
                             <div class="nav-icon">💇</div>
-                            <div>发型师</div>
+                            <div data-nav="stylists">发型师</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('member')">
                             <div class="nav-icon">👤</div>
-                            <div>我的</div>
+                            <div data-nav="member">我的</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 积分商城 -->
+            <!-- 发型师页面 -->
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <div class="screen-header">
-                        <div class="language-badge">中文</div>
-                        <div class="mock-title">2,580</div>
-                        <div class="mock-subtitle">可用积分</div>
-                        <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
-                            <div style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; font-size: 14px;">积分明细</div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; font-size: 14px;">赚积分</div>
-                        </div>
+                    <div class="screen-header" style="padding: 30px 20px;">
+                        <div class="language-badge" data-lang-badge>中文</div>
+                        <div class="mock-title" data-t="hairStylists">发型师</div>
                     </div>
                     <div class="screen-content">
-                        <div class="mock-section" style="margin: 15px 0; padding: 0; overflow: hidden;">
-                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 120px; display: flex; align-items: center; justify-content: center; color: white;">
-                                <div style="text-align: center;">
-                                    <div style="font-size: 24px; font-weight: bold;">🎉 新年特惠</div>
-                                    <div style="font-size: 14px; margin-top: 10px;">积分兑换专区</div>
-                                </div>
+                        <div class="mock-section" style="background: white; padding: 10px; margin: 15px;">
+                            <div style="display: flex; align-items: center; background: #f5f5f5; padding: 12px; border-radius: 25px;">
+                                <span style="margin-right: 10px;">🔍</span>
+                                <span style="color: #999; font-size: 14px;" data-t="searchStylist">搜索发型师</span>
                             </div>
                         </div>
-                        <div style="font-weight: bold; margin: 20px 15px;">全部</div>
-                        <div class="mock-grid">
-                            <div class="mock-card" style="text-align: center;">
-                                <div style="width: 100%; height: 80px; background: #ddd; border-radius: 10px; margin-bottom: 10px;"></div>
-                                <div style="font-size: 14px; font-weight: bold;">免费洗吹一次</div>
-                                <div style="color: #a855f7; font-size: 12px; margin-top: 5px;">500积分</div>
-                                <div style="background: #a855f7; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px; margin-top: 10px; display: inline-block;">立即兑换</div>
+                        <div class="mock-section" style="padding: 0; margin: 15px;">
+                            <div class="mock-row" style="border-bottom: 1px solid #f0f0f0;">
+                                <div style="width: 80px; height: 80px; background: #ddd; border-radius: 50%; margin-right: 15px;"></div>
+                                <div class="mock-info" style="flex: 1;">
+                                    <h4>阿杰</h4>
+                                    <p style="font-size: 12px; color: #a855f7;">首席造型师</p>
+                                    <p style="font-size: 12px; color: #999;" data-t="stylistSkill">擅长：潮流烫染、造型设计</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; color: #a855f7; font-weight: bold;">4.9</div>
+                                    <div style="font-size: 12px; color: #999;" data-t="rating">评分</div>
+                                </div>
                             </div>
-                            <div class="mock-card" style="text-align: center;">
-                                <div style="width: 100%; height: 80px; background: #ddd; border-radius: 10px; margin-bottom: 10px;"></div>
-                                <div style="font-size: 14px; font-weight: bold;">护发精油一瓶</div>
-                                <div style="color: #a855f7; font-size: 12px; margin-top: 5px;">1200积分</div>
-                                <div style="background: #a855f7; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px; margin-top: 10px; display: inline-block;">立即兑换</div>
+                            <div class="mock-row" style="border-bottom: 1px solid #f0f0f0;">
+                                <div style="width: 80px; height: 80px; background: #ddd; border-radius: 50%; margin-right: 15px;"></div>
+                                <div class="mock-info" style="flex: 1;">
+                                    <h4>小美</h4>
+                                    <p style="font-size: 12px; color: #a855f7;">资深造型师</p>
+                                    <p style="font-size: 12px; color: #999;" data-t="stylistSkill2">擅长：精致剪发、时尚染发</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; color: #a855f7; font-weight: bold;">4.8</div>
+                                    <div style="font-size: 12px; color: #999;" data-t="rating">评分</div>
+                                </div>
+                            </div>
+                            <div class="mock-row" onclick="switchToPage('reserve')">
+                                <div style="width: 80px; height: 80px; background: #ddd; border-radius: 50%; margin-right: 15px;"></div>
+                                <div class="mock-info" style="flex: 1;">
+                                    <h4>阿强</h4>
+                                    <p style="font-size: 12px; color: #a855f7;">发型师</p>
+                                    <p style="font-size: 12px; color: #999;" data-t="stylistSkill3">擅长：商务剪发、经典造型</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 18px; color: #a855f7; font-weight: bold;">4.7</div>
+                                    <div style="font-size: 12px; color: #999;" data-t="rating">评分</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="bottom-nav">
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('home')">
                             <div class="nav-icon">🏠</div>
-                            <div>首页</div>
+                            <div data-nav="home">首页</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item" onclick="switchToPage('reserve')">
                             <div class="nav-icon">📅</div>
-                            <div>预约</div>
+                            <div data-nav="reserve">预约</div>
                         </div>
-                        <div class="nav-item">
+                        <div class="nav-item active" onclick="switchToPage('stylists')">
                             <div class="nav-icon">💇</div>
-                            <div>发型师</div>
+                            <div data-nav="stylists">发型师</div>
                         </div>
-                        <div class="nav-item active">
+                        <div class="nav-item" onclick="switchToPage('member')">
                             <div class="nav-icon">👤</div>
-                            <div>我的</div>
+                            <div data-nav="member">我的</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="toast" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 10px;
+        font-size: 16px;
+        z-index: 10000;
+        display: none;
+        animation: fadeIn 0.3s;
+    "></div>
 
     <script>
         const translations = {
@@ -532,142 +664,176 @@
                 subtitle: '多语言微信小程序展示 - 中文 · قازاقشا · Казакша',
                 home: '首页',
                 reserve: '预约',
-                stylist: '发型师',
+                stylists: '发型师',
                 member: '我的',
-                myOrders: '我的订单',
-                pointsMall: '积分商城',
-                profile: '个人信息',
-                settings: '设置',
-                bookNow: '立即预约',
-                exchangeNow: '立即兑换',
+                titleHome: '美发店',
+                announcement: '店铺公告：春节期间营业时间调整',
                 serviceCategory: '服务分类',
+                haircut: '剪发',
+                perm: '烫发',
+                dye: '染发',
+                care: '护理',
                 hotService: '热门服务',
-                announcement: '店铺公告',
-                newHaircut: '新人洗剪吹',
+                newHaircut: '新人洗剪吹 ¥38',
+                myOrders: '我的订单',
+                points: '积分',
+                coupons: '优惠券',
+                balance: '余额',
+                pointsMall: '积分商城',
+                giftCards: '礼品卡',
+                profile: '个人信息',
                 selectStylist: '选择发型师',
-                selectService: '选择服务',
-                selectDate: '选择日期',
                 stylistName: '阿杰 - 首席造型师',
                 stylistDesc: '擅长：潮流烫染、造型设计',
-                haircut: '潮流剪发',
-                duration: '约40分钟',
+                selectService: '选择服务',
+                haircutService: '潮流剪发',
+                duration40: '约40分钟',
+                selectDate: '选择日期',
                 today: '今天',
                 tomorrow: '明天',
-                totalPoints: '可用积分',
-                pointsDetails: '积分明细',
-                earnPoints: '赚积分',
-                newUserDiscount: '新人洗剪吹',
-                freeWash: '免费洗剪一次',
-                hairOil: '护发精油一瓶',
-                newYearSale: '🎉 新年特惠',
-                pointsExchange: '积分兑换专区',
-                allProducts: '全部',
-                allServices: '服务',
+                bookNow: '立即预约',
+                searchStylist: '搜索发型师',
+                hairStylists: '发型师',
+                stylistSkill: '擅长：潮流烫染、造型设计',
+                stylistSkill2: '擅长：精致剪发、时尚染发',
+                stylistSkill3: '擅长：商务剪发、经典造型',
+                rating: '评分',
                 pendingService: '待服务',
                 completed: '已完成',
                 pendingReview: '待评价',
                 refund: '退款',
                 memberName: '张小明',
-                vipMember: 'VIP会员',
-                points: '积分',
-                coupons: '优惠券',
-                balance: '余额'
+                vipMember: 'VIP会员'
             },
             kk: {
                 title: 'Салон Қызметтері',
                 subtitle: 'Көптілді WeChat минипрограммасы - 中文 · قازاقشا · Казакша',
                 home: 'Басты бет',
                 reserve: 'Брондау',
-                stylist: 'Сәлөшілер',
+                stylists: 'Сәлөшілер',
                 member: 'Меніڭ',
-                myOrders: 'Меніڭ заказдарым',
-                pointsMall: 'Ойындар дүкені',
-                profile: 'Жеке ақпарат',
-                settings: 'Параметрлер',
-                bookNow: 'Дербес брондау',
-                exchangeNow: 'Дербес айырмасын алу',
+                titleHome: 'Салон',
+                announcement: 'Дүкен хабарламасы：Жаңа жыл кезеңінде',
                 serviceCategory: 'Категориялар',
+                haircut: 'Кесілу',
+                perm: 'Пермь',
+                dye: 'Бояу',
+                care: 'Кезек',
                 hotService: 'Ерекше қызмет',
-                announcement: 'Дүкен хабарламасы',
-                newHaircut: 'Жаңа қолданылатын жуу-қосу',
+                newHaircut: 'Жаңа жуу-қосу ¥38',
+                myOrders: 'Меніڭ заказдарым',
+                points: 'Балдар',
+                coupons: 'Купондар',
+                balance: 'Баланс',
+                pointsMall: 'Ойындар дүкені',
+                giftCards: 'Сыйлық картасы',
+                profile: 'Жеке ақпарат',
                 selectStylist: 'Сәлөшілерді таңдау',
-                selectService: 'Қызметті таңдау',
-                selectDate: 'Күнді таңдау',
                 stylistName: 'Айдос - Бас сәлөші',
                 stylistDesc: 'Маманданған: замануи пермь, стильдеу',
-                haircut: 'Замануи кесілу',
-                duration: '40 минут',
+                selectService: 'Қызметті таңдау',
+                haircutService: 'Замануи кесілу',
+                duration40: '40 минут',
+                selectDate: 'Күнді таңдау',
                 today: 'Бүгін',
                 tomorrow: 'Ертең',
-                totalPoints: 'Балдар',
-                pointsDetails: 'Балдар тіркелгені',
-                earnPoints: 'Бал жинау',
-                newUserDiscount: 'Жаңа қолданушыларға арналған',
-                freeWash: 'Дербес жуу-қосу',
-                hairOil: 'Шаш майы',
-                newYearSale: '🎉 Жаңа жыл',
-                pointsExchange: 'Балдар бөлімі',
-                allProducts: 'Барлығы',
-                allServices: 'Қызмет',
+                bookNow: 'Дербес брондау',
+                searchStylist: 'Сәлөшілерді іздеу',
+                hairStylists: 'Сәлөшілер',
+                stylistSkill: 'Маманданған: замануи пермь, стильдеу',
+                stylistSkill2: 'Маманданған: нәзік кесілу, замануи бояу',
+                stylistSkill3: 'Маманданған: бизнес кесілу, классикалық стиль',
+                rating: 'Бағасы',
                 pendingService: 'Қызмет күтілуде',
                 completed: 'Аяқталды',
                 pendingReview: 'Пікірлер күтілуде',
                 refund: 'Айырбасты',
                 memberName: 'Жаңа достар',
-                vipMember: 'VIP мүшесі',
-                points: 'Балдар',
-                coupons: 'Купондар',
-                balance: 'Баланс'
+                vipMember: 'VIP мүшесі'
             },
             kkArabic: {
                 title: 'سالون قىزمەتتەرى',
                 subtitle: 'كوبتىلدى Jackets سايتى - 中文 · قازاقشا · Казакша',
                 home: 'باستى بەت',
                 reserve: 'برونداۋ',
-                stylist: 'سەلوشىلەر',
+                stylists: 'سەلوشىلەر',
                 member: 'مەنىڭ',
-                myOrders: 'مەنىڭ زاكازدارىم',
-                pointsMall: 'ويىندار دۇكەنى',
-                profile: 'جەكە اقپارات',
-                settings: 'پارامەتتەرلەر',
-                bookNow: 'دەربەس برونداۋ',
-                exchangeNow: 'دەربەس ايىرماسىن الۋ',
+                titleHome: 'سالون',
+                announcement: 'دۇكەن حابارلاماسى：جاڭا جىل مەزگىلىندە',
                 serviceCategory: 'كاتەگوريالار',
+                haircut: 'كەسىلۋ',
+                perm: 'پەرمى',
+                dye: 'بوياۋ',
+                care: 'كەزەك',
                 hotService: 'ەرەكشە قىزمەت',
-                announcement: 'دۇكەن حابارلاماسى',
-                newHaircut: 'جانە قولدانىلاتىن جۋۋ-قوسۋ',
+                newHaircut: 'جانە جۋۋ-قوسۋ ¥38',
+                myOrders: 'مەنىڭ زاكازدارىم',
+                points: 'بالدار',
+                coupons: 'كۇپوندار',
+                balance: 'بالانس',
+                pointsMall: 'ويىندار دۇكەنى',
+                giftCards: 'سىيلىق كارتاسى',
+                profile: 'جەكە اقپارات',
                 selectStylist: 'سەلوشىلەردى تاڭداۋ',
-                selectService: 'قىزمەتتى تاڭداۋ',
-                selectDate: 'كۇندى تاڭداۋ',
                 stylistName: 'ايىدوس - باس سەلوشى',
                 stylistDesc: 'ماماندانعان: زامانۋى پەرمى، ستيلدەۋ',
-                haircut: 'زامانۋى كەسىلۋ',
-                duration: '40 مينۋت',
+                selectService: 'قىزمەتتى تاڭداۋ',
+                haircutService: 'زامانۋى كەسىلۋ',
+                duration40: '40 مينۋت',
+                selectDate: 'كۇندى تاڭداۋ',
                 today: 'بۇگىن',
                 tomorrow: 'ەرتەڭ',
-                totalPoints: 'بالدار',
-                pointsDetails: 'بالدار تىركەلگەنى',
-                earnPoints: 'بال جيناۋ',
-                newUserDiscount: 'جانە قولدانۋشىلارعا ارنالعان',
-                freeWash: 'دەربەس جۋۋ-قوسۋ',
-                hairOil: 'شاش مايى',
-                newYearSale: '🎉 جاڭا جىل',
-                pointsExchange: 'بالدار بولىمى',
-                allProducts: 'بارلىعى',
-                allServices: 'قىزمەت',
+                bookNow: 'دەربەس برونداۋ',
+                searchStylist: 'سەلوشىلەردى ىزدەۋ',
+                hairStylists: 'سەلوشىلەر',
+                stylistSkill: 'ماماندانعان: زامانۋى پەرمى، ستيلدەۋ',
+                stylistSkill2: 'ماماندانعان: نەزىك كەسىلۋ، زامانۋى بوياۋ',
+                stylistSkill3: 'ماماندانعان: بيزنەس كەسىلۋ، كласسيكالىق ستيل',
+                rating: 'باعاسى',
                 pendingService: 'قىزمەت كۇتىلۋدە',
                 completed: 'اياقتالدى',
                 pendingReview: 'پىكىرلەر كۇتىلۋدە',
                 refund: 'ايىرباستى',
                 memberName: 'جانە دوستار',
-                vipMember: 'VIP مۇشەسى',
-                points: 'بالدار',
-                coupons: 'كۇپوندار',
-                balance: 'بالانس'
+                vipMember: 'VIP مۇشەسى'
             }
         };
 
         let currentLang = 'zh';
+        let currentPage = 'home';
+
+        function switchToPage(page) {
+            currentPage = page;
+            
+            // 更新所有底部导航的active状态
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.querySelectorAll(`.nav-item[onclick*="switchToPage('${page}')"]`).forEach(item => {
+                item.classList.add('active');
+            });
+            
+            // 更新页面标题
+            if (page === 'home') {
+                document.getElementById('pageTitle').textContent = translations[currentLang].titleHome;
+            } else if (page === 'stylists') {
+                document.getElementById('pageTitle').textContent = translations[currentLang].hairStylists;
+            } else if (page === 'reserve') {
+                document.getElementById('pageTitle').textContent = translations[currentLang].reserve;
+            } else if (page === 'member') {
+                document.getElementById('pageTitle').textContent = translations[currentLang].member;
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2000);
+        }
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -680,208 +846,47 @@
             event.target.classList.add('active');
 
             // Update header
-            document.querySelector('.header h1').textContent = t.title;
-            document.querySelector('.header p').textContent = t.subtitle;
+            document.getElementById('pageTitle').textContent = t.title;
+            document.getElementById('pageSubtitle').textContent = t.subtitle;
 
             // Update all language badges
-            document.querySelectorAll('.language-badge').forEach(badge => {
+            document.querySelectorAll('[data-lang-badge]').forEach(badge => {
                 badge.textContent = lang === 'kk' ? 'Казакша' : (lang === 'kkArabic' ? 'قازاقشا' : '中文');
             });
 
-            // Update bottom navigation
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                const icon = item.querySelector('.nav-icon').textContent;
-                if (icon === '🏠') item.querySelector('div:last-child').textContent = t.home;
-                if (icon === '📅') item.querySelector('div:last-child').textContent = t.reserve;
-                if (icon === '💇') item.querySelector('div:last-child').textContent = t.stylist;
-                if (icon === '👤') item.querySelector('div:last-child').textContent = t.member;
-            });
-
-            // Update mock titles and content
-            const mockTitles = document.querySelectorAll('.mock-title');
-            mockTitles.forEach(el => {
-                if (el.textContent === '美发店' || el.textContent === 'Салон Қызметтері' || el.textContent === 'سالون قىزمەتتەرى') {
-                    el.textContent = t.title;
-                }
-                if (el.textContent === '张小明' || el.textContent === 'Жаңа достар' || el.textContent === 'جانە دوستار') {
-                    el.textContent = t.memberName;
+            // Update all navigation items
+            document.querySelectorAll('[data-nav]').forEach(nav => {
+                const key = nav.getAttribute('data-nav');
+                if (t[key]) {
+                    nav.textContent = t[key];
                 }
             });
 
-            const mockSubtitles = document.querySelectorAll('.mock-subtitle');
-            mockSubtitles.forEach(el => {
-                if (el.textContent.includes('店铺公告') || el.textContent.includes('Дүкен хабарламасы') || el.textContent.includes('دۇكەن حابارلاماسى')) {
-                    el.textContent = t.announcement + '：' + (lang === 'zh' ? '春节期间营业时间调整' : (lang === 'kk' ? 'Жаңа жыл кезеңінде жұмыс уақыты өзгереді' : 'جاڭا جىل مەزگىلىندە قىزمەت ۋاقىتى ءوزگەرەدى'));
-                }
-                if (el.textContent === 'VIP会员' || el.textContent === 'VIP мүшесі' || el.textContent === 'VIP مۇشەسى') {
-                    el.textContent = t.vipMember;
+            // Update all translatable elements
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (t[key]) {
+                    el.textContent = t[key];
                 }
             });
 
-            // Update grid items
-            const gridItems = document.querySelectorAll('.mock-grid-item');
-            if (gridItems.length >= 4) {
-                const gridLabels = [t.haircut, t.perm, t.dye, t.care];
-                gridItems.forEach((item, i) => {
-                    if (i < gridLabels.length) {
-                        item.textContent = gridLabels[i];
+            // Update phone mockup titles
+            document.querySelectorAll('.phone-screen .screen-header .mock-title').forEach(title => {
+                if (title.getAttribute('data-t')) {
+                    const key = title.getAttribute('data-t');
+                    if (t[key]) {
+                        title.textContent = t[key];
                     }
-                });
-            }
-
-            // Update cards
-            const cards = document.querySelectorAll('.mock-card h4');
-            cards.forEach(card => {
-                if (card.textContent === '热门服务' || card.textContent === 'Ерекше қызмет' || card.textContent === 'ەرەكشە قىزمەت') {
-                    card.textContent = t.hotService;
-                }
-                if (card.textContent === '免费洗吹一次' || card.textContent === 'Дербес жуу-қосу' || card.textContent === 'دەربەس جۋۋ-قوسۋ') {
-                    card.textContent = t.freeWash;
-                }
-                if (card.textContent === '护发精油一瓶' || card.textContent === 'Шаш майы' || card.textContent === 'شاش مايى') {
-                    card.textContent = t.hairOil;
-                }
-            });
-
-            // Update buttons
-            const buttons = document.querySelectorAll('.mock-button');
-            buttons.forEach(btn => {
-                if (btn.textContent === '立即预约' || btn.textContent === 'Дербес брондау' || btn.textContent === 'دەربەس برونداۋ') {
-                    btn.textContent = t.bookNow;
-                }
-            });
-
-            const exchangeButtons = document.querySelectorAll('.mock-card div:last-child');
-            exchangeButtons.forEach(btn => {
-                if (btn.textContent === '立即兑换' || btn.textContent === 'Дербес айырмасын алу' || btn.textContent === 'دەربەس ايىرماسىن الۋ') {
-                    if (btn.classList.contains('mock-card')) {
-                        btn.querySelector('div:last-child').textContent = t.exchangeNow;
-                    }
-                }
-            });
-
-            // Update sections
-            const sections = document.querySelectorAll('.mock-section');
-            sections.forEach(section => {
-                const strong = section.querySelector('div[style*="font-weight: bold"]');
-                if (strong) {
-                    if (strong.textContent === '服务分类' || strong.textContent === 'Категориялар' || strong.textContent === 'كاتەگوريالار') {
-                        strong.textContent = t.serviceCategory;
-                    }
-                    if (strong.textContent === '选择发型师' || strong.textContent === 'Сәлөшілерді таңдау' || strong.textContent === 'سەلوشىلەردى تاڭداۋ') {
-                        strong.textContent = t.selectStylist;
-                    }
-                    if (strong.textContent === '选择服务' || strong.textContent === 'Қызметті таңдау' || strong.textContent === 'قىزمەتتى تاڭداۋ') {
-                        strong.textContent = t.selectService;
-                    }
-                    if (strong.textContent === '选择日期' || strong.textContent === 'Күнді таңдау' || strong.textContent === 'كۇندى تاڭداۋ') {
-                        strong.textContent = t.selectDate;
-                    }
-                    if (strong.textContent === '我的订单' || strong.textContent === 'Меніڭ заказдарым' || strong.textContent === 'مەنىڭ زاكازدارىم') {
-                        strong.textContent = t.myOrders;
-                    }
-                }
-            });
-
-            // Update order tabs
-            const orderTabs = document.querySelectorAll('.nav-item[style*="text-align: center"]');
-            if (orderTabs.length >= 4) {
-                const tabLabels = [t.pendingService, t.completed, t.pendingReview, t.refund];
-                orderTabs.forEach((tab, i) => {
-                    if (i < tabLabels.length) {
-                        tab.querySelector('div:last-child').textContent = tabLabels[i];
-                    }
-                });
-            }
-
-            // Update stats
-            const statLabels = document.querySelectorAll('.mock-section[style*="display: flex"] div[style*="font-size: 14px"]');
-            if (statLabels.length >= 3) {
-                statLabels[0].textContent = t.points;
-                statLabels[1].textContent = t.coupons;
-                statLabels[2].textContent = t.balance;
-            }
-
-            // Update stylist info
-            const stylistInfo = document.querySelectorAll('.mock-info h4');
-            stylistInfo.forEach(info => {
-                if (info.textContent.includes('阿杰') || info.textContent.includes('Айдос') || info.textContent.includes('ايىدوس')) {
-                    info.textContent = t.stylistName;
-                }
-            });
-
-            const stylistDesc = document.querySelectorAll('.mock-info p');
-            stylistDesc.forEach(desc => {
-                if (desc.textContent.includes('擅长') || desc.textContent.includes('Маманданған') || desc.textContent.includes('ماماندانعان')) {
-                    desc.textContent = t.stylistDesc;
-                }
-                if (desc.textContent.includes('约40分钟') || desc.textContent.includes('40 минут') || desc.textContent.includes('40 مينۋت')) {
-                    desc.textContent = t.duration;
-                }
-            });
-
-            // Update date labels
-            const dateLabels = document.querySelectorAll('[style*="font-size: 12px;"]');
-            dateLabels.forEach(label => {
-                if (label.textContent === '今天' || label.textContent === 'Бүгін' || label.textContent === 'بۇگىن') {
-                    label.textContent = t.today;
-                }
-                if (label.textContent === '明天' || label.textContent === 'Ертең' || label.textContent === 'ەرتەڭ') {
-                    label.textContent = t.tomorrow;
-                }
-            });
-
-            // Update points section
-            const pointsBadges = document.querySelectorAll('.screen-header .mock-title');
-            pointsBadges.forEach(badge => {
-                if (badge.textContent === '2,580' && badge.closest('.screen-header')) {
-                    badge.textContent = '2,580';
-                }
-            });
-
-            const pointsLabels = document.querySelectorAll('.screen-header .mock-subtitle');
-            pointsLabels.forEach(label => {
-                if (label.textContent === '可用积分' || label.textContent === 'Балдар' || label.textContent === 'بالدار') {
-                    label.textContent = t.totalPoints;
-                }
-            });
-
-            // Update points buttons
-            const pointsBtns = document.querySelectorAll('[style*="border-radius: 20px"][style*="font-size: 14px"]');
-            pointsBtns.forEach(btn => {
-                if (btn.textContent === '积分明细' || btn.textContent === 'Балдар тіркелгені' || btn.textContent === 'بالدار تىركەلگەنى') {
-                    btn.textContent = t.pointsDetails;
-                }
-                if (btn.textContent === '赚积分' || btn.textContent === 'Бал жинау' || btn.textContent === 'بال جيناۋ') {
-                    btn.textContent = t.earnPoints;
-                }
-            });
-
-            // Update new year sale
-            const saleTitle = document.querySelector('[style*="font-weight: bold"]');
-            if (saleTitle && saleTitle.textContent.includes('新年特惠') || saleTitle && saleTitle.textContent.includes('Жаңа жыл') || saleTitle && saleTitle.textContent.includes('جاڭا جىل')) {
-                saleTitle.textContent = t.newYearSale;
-            }
-
-            const saleDesc = document.querySelector('.mock-section[style*="margin: 15px 0"] div div div');
-            if (saleDesc && saleDesc.textContent.includes('积分兑换')) {
-                saleDesc.textContent = t.pointsExchange;
-            }
-
-            // Update price labels
-            const priceLabels = document.querySelectorAll('.mock-section .mock-card p');
-            priceLabels.forEach(p => {
-                if (p.textContent === '新人洗剪吹 ¥38') {
-                    p.textContent = t.newHaircut + ' ¥38';
                 }
             });
 
             // Apply RTL for Arabic
             if (lang === 'kkArabic') {
-                document.body.classList.add('rtl');
+                document.body.style.direction = 'rtl';
+                document.body.style.fontFamily = "'Noto Sans Arabic', 'Noto Sans SC', sans-serif";
             } else {
-                document.body.classList.remove('rtl');
+                document.body.style.direction = 'ltr';
+                document.body.style.fontFamily = "'Noto Sans SC', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif";
             }
         }
     </script>
